@@ -1,6 +1,7 @@
 module com.tieu_luan.sapxeplichlv {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.swing;
     requires java.sql;
     requires org.apache.poi.poi;
     requires org.apache.poi.ooxml;

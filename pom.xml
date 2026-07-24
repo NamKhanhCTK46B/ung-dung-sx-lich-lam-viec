@@ -107,6 +107,14 @@
                         <id>default-cli</id>
                     </execution>
                     <execution>
+                        <!-- Generate documentation screenshots without a database connection -->
+                        <!-- Usage: mvn javafx:run@screenshots -->
+                        <id>screenshots</id>
+                        <configuration>
+                            <mainClass>com.tieu_luan.sapxeplichlv.UiScreenshotGenerator</mainClass>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <!-- Configuration for manual attach debugging -->
                         <!-- Usage: mvn clean javafx:run@debug -->
                         <id>debug</id>
