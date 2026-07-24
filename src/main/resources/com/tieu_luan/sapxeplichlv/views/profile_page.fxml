@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tieu_luan.sapxeplichlv.EmployeeProfileController">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="80.0" spacing="30.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="80.0" styleClass="logo-label" text="N" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#onHomeClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="H" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onProfileClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button,active-sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="P" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onRequestClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="R" />
+               </graphic>
+            </Button>
+            <Pane VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="L" />
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="820.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="14.0" layoutY="14.0" prefHeight="565.0" prefWidth="785.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="785.0" spacing="20.0">
+                     <children>
+                        <Label styleClass="title-label" text="Your Profile">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="505.0" prefWidth="785.0" spacing="20.0">
+                     <children>
+                        <VBox prefHeight="505.0" prefWidth="380.0" spacing="15.0" styleClass="panel">
+                           <children>
+                              <Label styleClass="section-header" text="Personal Information">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="350.0">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Employee ID:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="employeeIdLabel" text="EMP001">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="350.0">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Position:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="positionLabel" text="Waiter">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Full Name:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="fullNameField" prefHeight="35.0" prefWidth="350.0" />
+                              <Label text="Email:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="emailField" prefHeight="35.0" prefWidth="350.0" />
+                              <Label text="Phone:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="phoneField" prefHeight="35.0" prefWidth="350.0" />
+                              <Button fx:id="updateProfileBtn" mnemonicParsing="false" onAction="#onUpdateProfileClick" prefHeight="40.0" prefWidth="350.0" styleClass="primary-button" text="Update Profile">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="505.0" prefWidth="380.0" spacing="15.0" styleClass="panel">
+                           <children>
+                              <Label styleClass="section-header" text="Change Password">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Current Password:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="currentPasswordField" prefHeight="35.0" prefWidth="350.0" />
+                              <Label text="New Password:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <PasswordField fx:id="newPasswordField" prefHeight="35.0" prefWidth="350.0" />
+                              <Label text="Confirm New Password:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <PasswordField fx:id="confirmPasswordField" prefHeight="35.0" prefWidth="350.0" />
+                              <Button fx:id="changePasswordBtn" mnemonicParsing="false" onAction="#onChangePasswordClick" prefHeight="40.0" prefWidth="350.0" styleClass="primary-button" text="Change Password">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Label fx:id="passwordErrorLabel" styleClass="error-label" text="Passwords do not match" textFill="RED" visible="false">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

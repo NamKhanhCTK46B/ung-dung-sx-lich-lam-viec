@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tieu_luan.sapxeplichlv.EmployeeRequestController">
+   <top>
+      <HBox alignment="CENTER_LEFT" styleClass="header">
+         <children>
+            <Label styleClass="title-label" text="Tạo yêu cầu đổi lịch">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnBack" onAction="#handleBack" styleClass="back-button" text="Quay lại" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tabShiftChange" text="Đổi ca làm việc">
+                  <content>
+                    <VBox prefHeight="184.0" prefWidth="511.0" spacing="20.0">
+                         <children>
+                            <GridPane hgap="10.0" prefWidth="471.0" vgap="10.0">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                               <children>
+                                  <Label prefHeight="18.0" prefWidth="195.0" text="Chọn ca cần đổi:" />
+                                  <ComboBox fx:id="cmbShift" prefWidth="300.0" GridPane.columnIndex="1" />
+                                  <Label text="Chi tiết ca hiện tại:" GridPane.rowIndex="1" />
+                                  <Label fx:id="lblCurrentShift" text="Chưa chọn ca" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                  <Label text="Đổi với nhân viên:" GridPane.rowIndex="2" />
+                                  <ComboBox fx:id="cmbEmployee" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                               </children>
+                            </GridPane>
+                            <Label styleClass="note-label" text="Lưu ý: Chỉ có thể đổi ca với nhân viên cùng vị trí và không trùng ca làm việc trong ngày" wrapText="true" />
+                         </children>
+                         <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                         </padding>
+                    </VBox>
+                  </content>
+                </Tab>
+                <Tab fx:id="tabLeave" text="Xin nghỉ phép">
+                  <content>
+                    <VBox spacing="20.0">
+                         <children>
+                            <GridPane hgap="10.0" vgap="10.0">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                               <children>
+                                  <Label text="Ngày bắt đầu:" />
+                                  <DatePicker fx:id="dpStartDate" GridPane.columnIndex="1" />
+                                  <Label text="Ngày kết thúc:" GridPane.rowIndex="1" />
+                                  <DatePicker fx:id="dpEndDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                  <Label text="Số ngày nghỉ:" GridPane.rowIndex="2" />
+                                  <Label fx:id="lblLeaveDays" text="1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                  <Label text="Số ngày nghỉ còn lại:" GridPane.rowIndex="3" />
+                                  <Label fx:id="lblRemainingLeave" text="4" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                               </children>
+                            </GridPane>
+                            <Label styleClass="note-label" text="Lưu ý: Mỗi nhân viên được phép nghỉ tối đa 4 ngày trong tháng" wrapText="true" />
+                         </children>
+                         <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                         </padding>
+                    </VBox>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Button fx:id="btnSubmit" defaultButton="true" onAction="#handleSubmitRequest" styleClass="primary-button" text="Gửi yêu cầu">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

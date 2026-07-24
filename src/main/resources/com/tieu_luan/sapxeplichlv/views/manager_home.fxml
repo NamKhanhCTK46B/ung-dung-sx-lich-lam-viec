@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tieu_luan.sapxeplichlv.ManagerHomeController">
+   <top>
+      <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="header">
+         <children>
+            <Label styleClass="title-label" text="Quản lý lịch làm việc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblWelcome" text="Xin chào, Quản lý">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnLogout" onAction="#handleLogout" styleClass="logout-button" text="Đăng xuất">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="25.0" right="25.0" top="15.0" />
+         </padding>
+      </HBox>
+   </top>
+   <left>
+      <VBox maxHeight="1.7976931348623157E308" prefWidth="250.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnGenerateSchedule" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleGenerateSchedule" styleClass="menu-button" text="Tạo lịch làm việc">
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSchedule" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleGoToSchedule" styleClass="menu-button" text="Xem lịch làm việc">
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEmployees" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleGoToEmployees" styleClass="menu-button" text="Quản lý nhân viên">
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label fx:id="lblCurrentMonth" styleClass="section-title" text="Tháng 3/2025">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Label styleClass="section-title" text="Yêu cầu đổi lịch/nghỉ phép chờ xử lý">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblRequests" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colMaYC" prefWidth="50.0" text="Mã YC" />
+                <TableColumn fx:id="colTenNV" prefWidth="120.0" text="Nhân viên" />
+                <TableColumn fx:id="colLoaiYC" prefWidth="90.0" text="Loại yêu cầu" />
+                <TableColumn fx:id="colNgayBD" prefWidth="100.0" text="Ngày bắt đầu" />
+                <TableColumn fx:id="colNgayKT" prefWidth="100.0" text="Ngày kết thúc" />
+                <TableColumn fx:id="colTrangThai" prefWidth="100.0" text="Trạng thái" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <HBox spacing="15.0">
+               <children>
+                  <Button fx:id="btnApprove" disable="true" onAction="#handleApproveRequest" styleClass="approve-button" text="Duyệt yêu cầu">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnReject" disable="true" onAction="#handleRejectRequest" styleClass="reject-button" text="Từ chối yêu cầu">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

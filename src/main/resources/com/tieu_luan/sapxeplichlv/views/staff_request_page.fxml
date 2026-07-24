@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tieu_luan.sapxeplichlv.EmployeeRequestController">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="80.0" spacing="30.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="80.0" styleClass="logo-label" text="N" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#onHomeClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="H" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onProfileClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="P" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onRequestClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button,active-sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="R" />
+               </graphic>
+            </Button>
+            <Pane VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="50.0" prefWidth="50.0" styleClass="sidebar-button">
+               <graphic>
+                  <Label styleClass="icon-label" text="L" />
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="820.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="14.0" layoutY="14.0" prefHeight="565.0" prefWidth="785.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="785.0" spacing="20.0">
+                     <children>
+                        <Label styleClass="title-label" text="Schedule Change Requests">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="505.0" prefWidth="785.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox prefHeight="505.0" prefWidth="350.0" spacing="15.0" styleClass="panel">
+                           <children>
+                              <Label styleClass="section-header" text="Submit New Request">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Request Type:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="requestTypeComboBox" prefHeight="35.0" prefWidth="330.0" promptText="Select request type" />
+                              <Label text="Date:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <DatePicker fx:id="requestDatePicker" prefHeight="35.0" prefWidth="330.0" promptText="Select date" />
+                              <Label text="Shift:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="shiftComboBox" prefHeight="35.0" prefWidth="330.0" promptText="Select shift" />
+                              <Label text="Swap with (if applicable):">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="swapEmployeeComboBox" prefHeight="35.0" prefWidth="330.0" promptText="Select employee" />
+                              <Label text="Reason:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextArea fx:id="reasonTextArea" prefHeight="80.0" prefWidth="330.0" promptText="Enter reason for request" wrapText="true" />
+                              <Button fx:id="submitRequestBtn" mnemonicParsing="false" onAction="#onSubmitRequestClick" prefHeight="40.0" prefWidth="330.0" styleClass="primary-button" text="Submit Request">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="505.0" prefWidth="415.0" spacing="15.0" styleClass="panel" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="section-header" text="Your Request History">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="445.0" prefWidth="385.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <TableView fx:id="requestHistoryTable" prefHeight="440.0" prefWidth="383.0">
+                                       <columns>
+                                          <TableColumn fx:id="dateColumn" prefWidth="90.0" text="Date" />
+                                          <TableColumn fx:id="typeColumn" prefWidth="100.0" text="Type" />
+                                          <TableColumn fx:id="statusColumn" prefWidth="80.0" text="Status" />
+                                          <TableColumn fx:id="detailsColumn" prefWidth="112.0" text="Details" />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
