@@ -61,6 +61,18 @@ gửi yêu cầu đổi lịch hoặc nghỉ phép thuận tiện hơn.
 
 </details>
 
+## Video demo
+
+[▶ Xem video demo toàn bộ ứng dụng](docs/demo/application-demo.mp4)
+
+Video sử dụng dữ liệu mẫu an toàn và minh họa các luồng:
+
+- Đăng nhập bằng vai trò quản lý và nhân viên.
+- Duyệt yêu cầu đổi lịch/nghỉ phép.
+- Quản lý nhân viên và lịch làm việc.
+- Xuất báo cáo Excel/PDF.
+- Xem lịch cá nhân, gửi yêu cầu và cập nhật hồ sơ.
+
 ## Công nghệ sử dụng
 
 - Java 17 và JavaFX 23
@@ -131,6 +143,17 @@ không cần kết nối cơ sở dữ liệu và không sử dụng tài khoả
 ```bash
 mvn javafx:run@screenshots
 ```
+
+## Tạo lại video demo
+
+Video được dựng tự động từ JavaFX với dữ liệu mẫu trong bộ nhớ, không đọc
+database và không chứa tài khoản thật:
+
+```bash
+mvn javafx:run@demo-video
+```
+
+Kết quả được lưu tại `docs/demo/application-demo.mp4`.
 
 ## Bảo mật
 

@@ -75,6 +75,11 @@
             <version>0.4</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jcodec</groupId>
+            <artifactId>jcodec</artifactId>
+            <version>0.2.5</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -112,6 +117,14 @@
                         <id>screenshots</id>
                         <configuration>
                             <mainClass>com.tieu_luan.sapxeplichlv.UiScreenshotGenerator</mainClass>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!-- Generate an MP4 walkthrough with safe sample data -->
+                        <!-- Usage: mvn javafx:run@demo-video -->
+                        <id>demo-video</id>
+                        <configuration>
+                            <mainClass>com.tieu_luan.sapxeplichlv.DemoVideoGenerator</mainClass>
                         </configuration>
                     </execution>
                     <execution>
